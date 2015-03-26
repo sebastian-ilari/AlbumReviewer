@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Album>
+
+@foreach(Album album in @Model)
+{
+    <div class="album" data-id="album" data-album-id="@album.AlbumId">
+	    <div class="albumTitle">
+		    Album: @album.Title
+	    </div>
+	    <div class="infoContainer">
+		    <div class="genre">
+			    Genre: <span class="genreValue">@album.Genre</span>
+		    </div>
+		    <div class="price">
+			    Price: <span class="priceValue">@album.Price</span>
+		    </div>
+	    </div>
+	    <div class="starsContainer" data-id="starsContainer">
+
+            @Html.Partial("_Rating", album)
+
+		    <div class="ratingDetails">
+			    Ratings: <span class="cantRatings" data-id="cantRatings">@album.CantRatings</span>
+			    <br>
+			    Average: <span class="averageRating" data-id="averageRating">@album.AverageRating</span>
+		    </div>
+	    </div>
+    </div>
+}

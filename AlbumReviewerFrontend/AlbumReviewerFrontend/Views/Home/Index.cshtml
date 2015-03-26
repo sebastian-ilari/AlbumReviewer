@@ -1,0 +1,22 @@
+﻿@model IEnumerable<Artist>
+
+@{
+    ViewBag.Title = "Album Reviewer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+	<div class="title">
+		Album Reviewer
+	</div>
+
+	<ul id="artistsContainer">
+
+        @foreach (Artist artist in @Model)
+        {
+            @Html.Partial("_Artist", artist)
+        }
+
+	</ul>
+
+</div>
